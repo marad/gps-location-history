@@ -1,0 +1,92 @@
+name:                gps-location-history
+version:             0.1.0.0
+github:              "marad/gps-location-history"
+license:             BSD3
+author:              "Marcin Radoszewski"
+maintainer:          "moriturius@gmail.com"
+copyright:           "2018 Marcin Radoszewski"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/marad/gps-location-history#readme>
+
+dependencies:
+- base >= 4.8.2.0 && < 5
+- time
+- text
+- bytestring
+- aeson >= 1.2.4.0
+- gps >= 1.2
+- argparser >= 0.3.4
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wredundant-constraints
+# Syntactic sugar extensions
+- -XEmptyCase
+- -XLambdaCase
+- -XMultiWayIf
+- -XNamedFieldPuns
+- -XTupleSections 
+- -XKindSignatures
+- -XTypeOperators
+- -XBangPatterns
+- -XOverloadedStrings
+# Deriving mechanism extensions
+- -XDeriveFoldable
+- -XDeriveFunctor
+- -XDeriveGeneric
+- -XDeriveLift
+- -XDeriveTraversable
+- -XDerivingStrategies
+- -XGeneralizedNewtypeDeriving
+- -XStandaloneDeriving
+# Type system
+- -XScopedTypeVariables
+- -XTypeApplications
+# Other extensions
+- -XDuplicateRecordFields
+
+
+library:
+  source-dirs: src
+  ghc-options:
+  - -threaded
+  - -rtsopts
+  - -with-rtsopts=-N
+
+executables:
+  gps-location-history:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - gps-location-history
+
+tests:
+  gps-location-history-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - gps-location-history
+    - QuickCheck
+    - hspec

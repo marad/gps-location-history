@@ -1,0 +1,6 @@
+.stack-work/
+*.cabal
+*~
+nexus_position
+*.log
+regions.json
