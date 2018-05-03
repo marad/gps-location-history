@@ -17,7 +17,6 @@ makeMagic args = do
     eitherRegions <- readRegions $ argRegionsFile args
     case eitherRegions of 
         Right regions ->  do
-            print regions
             parsingResult <- readEntriesFromStdin
 
             let parsingErrors = lefts parsingResult
